@@ -13,7 +13,7 @@
 # under the License.
 ---
 # tasks/config.yaml
-shade_git_dest: /opt/git/ansible-role-shade/openstack-infra/shade
+shade_git_dest: /opt/ansible-role-shade/git/openstack-infra/shade
 shade_git_uri: https://git.openstack.org/openstack-infra/shade
 shade_git_version: master
 
