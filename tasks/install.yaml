@@ -20,7 +20,7 @@
 # NOTE(pabelanger): This needs to be here for now, since we need python-pip.
 - name: Ensure EPEL is enabled.
   package:
-    pkg: epel-release
+    name: epel-release
     state: installed
   when: (shade_install_method == 'git' or shade_install_method == 'pip') and
         ansible_os_family == 'RedHat'
