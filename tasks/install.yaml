@@ -29,7 +29,7 @@
   package:
     name: "{{ item }}"
     state: installed
-  with_items: shade_build_depends
+  with_items: "{{ shade_build_depends }}"
   when: shade_install_method == 'git' or shade_install_method == 'pip'
 
 - include: "install/{{ shade_install_method }}.yaml"
