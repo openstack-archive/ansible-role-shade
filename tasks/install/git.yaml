@@ -22,3 +22,4 @@
   pip:
     extra_args: "{{ shade_pip_extra_args }}"
     name: "file://{{ shade_git_dest }}"
+    virtualenv: "{{ shade_pip_virtualenv }}"
