@@ -20,5 +20,6 @@
 
 - name: Pip install shade from local git repo.
   pip:
-    extra_args: "{{ shade_pip_extra_args }}"
+    extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "file://{{ shade_git_dest }}"
+    virtualenv: "{{ shade_pip_virtualenv|default(omit) }}"

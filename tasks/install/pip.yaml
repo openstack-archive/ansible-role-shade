@@ -14,13 +14,7 @@
 ---
 - name: Install shade using pip.
   pip:
-    extra_args: "{{ shade_pip_extra_args }}"
+    extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "{{ shade_pip_name }}"
-  when: shade_pip_version is none
-
-- name: Install shade using pip.
-  pip:
-    extra_args: "{{ shade_pip_extra_args }}"
-    name: "{{ shade_pip_name }}"
-    version: "{{ shade_pip_version }}"
-  when: shade_pip_version is not none
+    version: "{{ shade_pip_version|default(omit) }}"
+    virtualenv: "{{ shade_pip_virtualenv|default(omit) }}"
