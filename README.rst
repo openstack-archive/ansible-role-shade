@@ -17,6 +17,8 @@ Shade is a simple client library for operating OpenStack clouds.
 Requirements
 ------------
 
+See `bindep.txt` for role dependencies.
+
 Packages
 ~~~~~~~~
 
