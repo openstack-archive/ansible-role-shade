@@ -31,9 +31,11 @@
       stat:
         path: /opt/ansible-role-shade/git/openstack-infra/shade
       register: shade_git_dest_stat
+      when: shade_install_method == 'git'
 
     - name: Assert shade_git_dest tests.
       assert:
         that:
           - shade_git_dest_stat.stat.exists
           - shade_git_dest_stat.stat.isdir
+      when: shade_install_method == 'git'

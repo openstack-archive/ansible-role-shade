@@ -17,7 +17,7 @@ shade_git_dest: /opt/ansible-role-shade/git/openstack-infra/shade
 shade_git_uri: https://git.openstack.org/openstack-infra/shade
 shade_git_version: master
 
-shade_install_method: git
+shade_install_method: pip
 
 shade_pip_name: shade
 # shade_pip_extra_args:
