@@ -18,6 +18,18 @@
     repo: "{{ shade_git_uri }}"
     version: "{{ shade_git_version }}"
 
+- name: bindep
+  pip:
+    name: bindep
+
+- name: test
+  shell: "bindep -b -f {{ shade_git_dest }}/bindep.txt"
+  register: test
+
+- debug:
+    var: test
+    verbosity: 2
+
 - name: Pip install shade from local git repo.
   pip:
     extra_args: "{{ shade_pip_extra_args|default(omit) }}"
