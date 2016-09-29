@@ -14,3 +14,4 @@
 ---
 __shade_build_depends:
   - git
+  - libssl-dev
