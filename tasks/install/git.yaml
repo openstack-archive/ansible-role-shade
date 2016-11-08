@@ -13,12 +13,14 @@
 # under the License.
 ---
 - name: Git clone shade.
+  become: yes
   git:
     dest: "{{ shade_git_dest }}"
     repo: "{{ shade_git_uri }}"
     version: "{{ shade_git_version }}"
 
 - name: Pip install shade from local git repo.
+  become: yes
   pip:
     extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "file://{{ shade_git_dest }}"
