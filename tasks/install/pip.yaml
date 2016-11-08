@@ -13,6 +13,7 @@
 # under the License.
 ---
 - name: Install shade using pip.
+  become: yes
   pip:
     extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "{{ shade_pip_name }}"
