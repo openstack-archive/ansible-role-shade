@@ -15,3 +15,4 @@
 __shade_build_depends:
   - git
   - openssl-devel
+  - python-devel
