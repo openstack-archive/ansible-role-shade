@@ -13,6 +13,5 @@
 # under the License.
 ---
 __shade_build_depends:
-  - git
   - libssl-dev
   - python-dev
