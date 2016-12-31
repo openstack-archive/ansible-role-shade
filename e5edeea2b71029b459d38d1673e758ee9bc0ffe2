@@ -1,0 +1,8 @@
+Code-Review+2: Paul Belanger <pabelanger@redhat.com>
+Workflow+1: Paul Belanger <pabelanger@redhat.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Sat, 31 Dec 2016 00:04:50 +0000
+Reviewed-on: https://review.openstack.org/415905
+Project: openstack/ansible-role-shade
+Branch: refs/heads/master
