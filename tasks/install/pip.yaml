@@ -18,4 +18,5 @@
     extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "{{ shade_pip_name }}"
     version: "{{ shade_pip_version|default(omit) }}"
+    virtualenv_python: "{{ shade_pip_virtualenv_python|default(omit) }}"
     virtualenv: "{{ shade_pip_virtualenv|default(omit) }}"
