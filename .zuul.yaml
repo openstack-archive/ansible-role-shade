@@ -1,0 +1,40 @@
+- job:
+    name: ansible-role-shade
+    run: tests/test
+    required-projects:
+      - name: openstack-infra/shade
+    roles:
+      - zuul: openstack/ansible-role-shade
+
+- job:
+    name: ansible-role-shade-centos-7
+    parent: ansible-role-shade
+    nodeset: centos-7
+
+- job:
+    name: ansible-role-shade-fedora-26
+    parent: ansible-role-shade
+    nodeset: fedora-26
+
+- job:
+    name: ansible-role-shade-ubuntu-xenial
+    parent: ansible-role-shade
+    nodeset: ubuntu-xenial
+
+- project:
+    name: openstack/ansible-role-shade
+    templates:
+      - windmill-jobs-fedora-26
+      - windmill-jobs-xenial
+    check:
+      jobs:
+        - ansible-role-shade-centos-7
+        - ansible-role-shade-fedora-26
+        - ansible-role-shade-ubuntu-xenial
+        - tox-linters
+    gate:
+      jobs:
+        - ansible-role-shade-centos-7
+        - ansible-role-shade-fedora-26
+        - ansible-role-shade-ubuntu-xenial
+        - tox-linters
