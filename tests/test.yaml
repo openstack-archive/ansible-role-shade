@@ -14,14 +14,9 @@
 ---
 - hosts: test
   vars:
-    rolename: "{{ lookup('pipe', 'pwd') | dirname | basename }}"
-  pre_tasks:
-    # Make sure OS does not have a stale package cache.
-    - name: Update apt cache.
-      become: yes
-      apt:
-        update_cache: yes
-      when: ansible_os_family == 'Debian'
+    nodepool_git_dest: "{{ ansible_user_dir }}/src/git.openstack.org/openstack-infra/nodepool"
+    nodepool_git_update: false
+    rolename: ansible-role-shade
 
   roles:
     - "{{ rolename }}"
