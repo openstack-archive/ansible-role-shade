@@ -17,6 +17,7 @@
   git:
     dest: "{{ shade_git_dest }}"
     repo: "{{ shade_git_uri }}"
+    update: "{{ shade_git_update|default(omit) }}"
     version: "{{ shade_git_version }}"
 
 - name: Pip install shade from local git repo.
