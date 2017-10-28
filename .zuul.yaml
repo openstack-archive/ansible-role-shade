@@ -1,6 +1,6 @@
 - job:
     name: ansible-role-shade
-    run: tests/test
+    run: tests/test.yaml
     required-projects:
       - name: openstack-infra/shade
     roles:
