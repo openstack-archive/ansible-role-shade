@@ -14,7 +14,6 @@
 ---
 - hosts: all
   vars:
-    shade_git_dest: "{{ ansible_user_dir }}/src/git.openstack.org/openstack-infra/shade"
     shade_git_update: false
     rolename: ansible-role-shade
 
