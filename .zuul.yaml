@@ -17,6 +17,11 @@
     nodeset: fedora-27
 
 - job:
+    name: ansible-role-shade-ubuntu-bionic
+    parent: ansible-role-shade
+    nodeset: ubuntu-bionic
+
+- job:
     name: ansible-role-shade-ubuntu-xenial
     parent: ansible-role-shade
     nodeset: ubuntu-xenial
@@ -24,11 +29,13 @@
 - project:
     templates:
       - windmill-jobs-fedora-27
+      - windmill-jobs-bionic
       - windmill-jobs-xenial
     check:
       jobs:
         - ansible-role-shade-centos-7
         - ansible-role-shade-fedora-27
+        - ansible-role-shade-ubuntu-bionic
         - ansible-role-shade-ubuntu-xenial
         - tox-linters
     gate:
