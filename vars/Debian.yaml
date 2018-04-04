@@ -16,3 +16,4 @@ __shade_build_depends:
   - gcc
   - libssl-dev
   - python-dev
+  - python3-dev
