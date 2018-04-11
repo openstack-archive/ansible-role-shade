@@ -17,6 +17,8 @@ Shade is a simple client library for operating OpenStack clouds.
 Requirements
 ------------
 
+* pip3 to be installed if using shade_install_method: (git|pip)
+
 See `bindep.txt` for role dependencies.
 
 Packages
