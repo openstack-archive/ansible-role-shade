@@ -15,6 +15,7 @@
 - name: Install shade using pip.
   become: yes
   pip:
+    executable: "{{ shade_pip_executable|default(omit) }}"
     extra_args: "{{ shade_pip_extra_args|default(omit) }}"
     name: "{{ shade_pip_name }}"
     version: "{{ shade_pip_version|default(omit) }}"
