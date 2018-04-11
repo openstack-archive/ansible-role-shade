@@ -7,11 +7,6 @@
       - zuul: openstack/ansible-role-shade
 
 - job:
-    name: ansible-role-shade-centos-7
-    parent: ansible-role-shade
-    nodeset: centos-7
-
-- job:
     name: ansible-role-shade-fedora-27
     parent: ansible-role-shade
     nodeset: fedora-27
@@ -33,14 +28,12 @@
       - windmill-jobs-xenial
     check:
       jobs:
-        - ansible-role-shade-centos-7
         - ansible-role-shade-fedora-27
         - ansible-role-shade-ubuntu-bionic
         - ansible-role-shade-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
-        - ansible-role-shade-centos-7
         - ansible-role-shade-fedora-27
         - ansible-role-shade-ubuntu-xenial
         - tox-linters
