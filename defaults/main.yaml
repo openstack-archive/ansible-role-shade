@@ -21,6 +21,7 @@ shade_git_version: master
 shade_install_method: git
 
 shade_pip_name: shade
+# shade_pip_executable:
 # shade_pip_extra_args:
 # shade_pip_version:
 # shade_pip_virtualenv_python:
