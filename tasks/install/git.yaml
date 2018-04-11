@@ -19,10 +19,8 @@
     update: "{{ shade_git_update|default(omit) }}"
     version: "{{ shade_git_version }}"
 
-- name: Pip install shade from local git repo.
-  become: yes
-  pip:
-    extra_args: "{{ shade_pip_extra_args|default(omit) }}"
-    name: "file://{{ shade_git_dest }}"
-    virtualenv_python: "{{ shade_pip_virtualenv_python|default(omit) }}"
-    virtualenv: "{{ shade_pip_virtualenv|default(omit) }}"
+- name: Set shade_pip_name to local git repo.
+  set_fact:
+    shade_pip_name: "file://{{ shade_git_dest }}"
+
+- include: pip.yaml
