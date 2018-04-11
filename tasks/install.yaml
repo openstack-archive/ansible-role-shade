@@ -25,4 +25,12 @@
   with_items: "{{ shade_build_depends }}"
   when: shade_install_method == 'git' or shade_install_method == 'pip'
 
+- name: Define shade_pip_executable if needed.
+  set_fact:
+    shade_pip_executable: pip3
+  when:
+    - shade_install_method == 'git' or shade_install_method == 'pip'
+    - shade_pip_virtualenv_python is not defined
+    - shade_pip_executable is not defined
+
 - include: "install/{{ shade_install_method }}.yaml"
