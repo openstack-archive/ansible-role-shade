@@ -1,10 +1,16 @@
 - job:
-    name: ansible-role-shade
-    run: tests/test.yaml
-    required-projects:
-      - name: openstack-infra/shade
+    name: ansible-role-shade-base
+    pre-run: tests/playbooks/pre.yaml
+    run: tests/playbooks/run.yaml
     roles:
       - zuul: openstack/ansible-role-shade
+
+# Testing for nodepool_install_method: pip
+- job:
+    name: ansible-role-shade
+    parent: ansible-role-shade-base
+    vars:
+      shade_install_method: pip
 
 - job:
     name: ansible-role-shade-fedora-27
@@ -21,6 +27,31 @@
     parent: ansible-role-shade
     nodeset: ubuntu-xenial
 
+# Testing for nodepool_install_method: git
+- job:
+    name: ansible-role-shade-src
+    parent: ansible-role-shade-base
+    required-projects:
+      - name: openstack-infra/shade
+    vars:
+      shade_git_update: false
+      shade_install_method: git
+
+- job:
+    name: ansible-role-shade-src-fedora-27
+    parent: ansible-role-shade-src
+    nodeset: fedora-27
+
+- job:
+    name: ansible-role-shade-src-ubuntu-bionic
+    parent: ansible-role-shade-src
+    nodeset: ubuntu-bionic
+
+- job:
+    name: ansible-role-shade-src-ubuntu-xenial
+    parent: ansible-role-shade-src
+    nodeset: ubuntu-xenial
+
 - project:
     templates:
       - windmill-jobs-fedora-27
@@ -31,9 +62,14 @@
         - ansible-role-shade-fedora-27
         - ansible-role-shade-ubuntu-bionic
         - ansible-role-shade-ubuntu-xenial
+        - ansible-role-shade-src-fedora-27
+        - ansible-role-shade-src-ubuntu-bionic
+        - ansible-role-shade-src-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
         - ansible-role-shade-fedora-27
         - ansible-role-shade-ubuntu-xenial
+        - ansible-role-shade-src-fedora-27
+        - ansible-role-shade-src-ubuntu-xenial
         - tox-linters
