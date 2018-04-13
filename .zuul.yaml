@@ -9,8 +9,6 @@
 - job:
     name: ansible-role-shade
     parent: ansible-role-shade-base
-    vars:
-      shade_install_method: pip
 
 - job:
     name: ansible-role-shade-fedora-27
