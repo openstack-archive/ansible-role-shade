@@ -20,9 +20,8 @@
 - name: Ensure build dependencies are installed.
   become: yes
   package:
-    name: "{{ item }}"
+    name: "{{ shade_build_depends }}"
     state: installed
-  with_items: "{{ shade_build_depends }}"
   when: shade_install_method == 'git' or shade_install_method == 'pip'
 
 - name: Define shade_pip_executable if needed.
