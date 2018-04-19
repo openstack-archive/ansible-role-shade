@@ -17,11 +17,15 @@ galaxy_info:
   description: Shade is a simple client library for operating OpenStack clouds
   company: Red Hat, Inc.
   license: Apache
-  min_ansible_version: 2.0
+  min_ansible_version: 2.4
   platforms:
-  - name: EL
+  - name: Fedora
     versions:
-    - 7
+    - 27
+  - name: Ubuntu
+    versions:
+    - 16.04
+    - 18.04
   categories:
-  - cloud
+  - system
 dependencies: []
