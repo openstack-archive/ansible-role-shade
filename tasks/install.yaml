@@ -32,4 +32,4 @@
     - shade_pip_virtualenv_python is not defined
     - shade_pip_executable is not defined
 
-- include: "install/{{ shade_install_method }}.yaml"
+- include_tasks: "install/{{ shade_install_method }}.yaml"

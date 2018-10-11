@@ -23,4 +23,4 @@
   set_fact:
     shade_pip_name: "file://{{ shade_git_dest }}"
 
-- include: pip.yaml
+- include_tasks: pip.yaml
