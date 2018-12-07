@@ -20,11 +20,6 @@
     parent: ansible-role-shade
     nodeset: ubuntu-bionic
 
-- job:
-    name: ansible-role-shade-ubuntu-xenial
-    parent: ansible-role-shade
-    nodeset: ubuntu-xenial
-
 # Testing for nodepool_install_method: git
 - job:
     name: ansible-role-shade-src
@@ -45,29 +40,21 @@
     parent: ansible-role-shade-src
     nodeset: ubuntu-bionic
 
-- job:
-    name: ansible-role-shade-src-ubuntu-xenial
-    parent: ansible-role-shade-src
-    nodeset: ubuntu-xenial
-
 - project:
     templates:
       - windmill-jobs-fedora-latest
       - windmill-jobs-bionic
-      - windmill-jobs-xenial
     check:
       jobs:
         - ansible-role-shade-fedora-latest
         - ansible-role-shade-ubuntu-bionic
-        - ansible-role-shade-ubuntu-xenial
         - ansible-role-shade-src-fedora-latest
         - ansible-role-shade-src-ubuntu-bionic
-        - ansible-role-shade-src-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
         - ansible-role-shade-fedora-latest
-        - ansible-role-shade-ubuntu-xenial
+        - ansible-role-shade-ubuntu-bionic
         - ansible-role-shade-src-fedora-latest
-        - ansible-role-shade-src-ubuntu-xenial
+        - ansible-role-shade-src-ubuntu-bionic
         - tox-linters
